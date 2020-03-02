@@ -5,7 +5,5 @@ import subprocess
 with open("file.json", "r") as readit:
     x = json.load(readit)
 
-index = x.find("branch == master")
-
-if index!=-1:
-	subprocess.run(["npm run deploy pause"])
+if x.get('master') is not None:
+	subprocess.run(["npm run deploy"])
